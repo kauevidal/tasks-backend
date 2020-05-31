@@ -10,39 +10,40 @@ import javax.persistence.Id;
 @Entity
 public class Task {
 
-	private Long id;
-	
-	@Column(nullable = false)
-	private String task;
-	
-	@Column(nullable = false)
-	private LocalDate dueDate;
-	
-	public Task() {}
+    private Long id;
 
-	@Id
-	@GeneratedValue
-	public Long getId() {
-		return id;
-	}
+    @Column(nullable = false)
+    private String description;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(nullable = false)
+    private LocalDate dueDate;
 
-	public String getTask() {
-		return task;
-	}
+    public Task() {
+    }
 
-	public void setTask(String task) {
-		this.task = task;
-	}
-	
-	public LocalDate getDueDate() {
-		return dueDate;
-	}
+    @Id
+    @GeneratedValue
+    public Long getId() {
+        return id;
+    }
 
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
 }

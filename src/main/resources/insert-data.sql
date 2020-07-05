@@ -1,0 +1,1 @@
+INSERT INTO task (description, due_date) values ('db task 1', '2025-07-01');

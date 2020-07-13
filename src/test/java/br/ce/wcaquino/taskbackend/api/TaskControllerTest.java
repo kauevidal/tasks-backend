@@ -1,9 +1,12 @@
 package br.ce.wcaquino.taskbackend.api;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -13,8 +16,16 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TaskControllerTest {
+
+    @LocalServerPort
+    private int port;
+
+    @Before
+    public void setup() {
+        RestAssured.port = port;
+    }
 
     @Test
     @Sql(scripts = {"/insert-data.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)

@@ -26,7 +26,7 @@ public class TaskControllerTest {
         MockitoAnnotations.initMocks(this);
     }
 
-    @Test(expected = ValidationException.class)
+    @Test
     public void shouldFailWhenDescriptionIsNull() throws ValidationException {
 
         Task task = new TaskBuilder()
@@ -39,11 +39,10 @@ public class TaskControllerTest {
             taskController.save(task);
         } catch (ValidationException e) {
             Assert.assertEquals("Fill the task description", e.getMessage());
-            throw e;
         }
     }
 
-    @Test(expected = ValidationException.class)
+    @Test
     public void shouldFailWhenDateIsNull() throws ValidationException {
 
         Task task = new TaskBuilder()
@@ -55,11 +54,10 @@ public class TaskControllerTest {
             taskController.save(task);
         } catch (ValidationException e) {
             Assert.assertEquals("Fill the due date", e.getMessage());
-            throw e;
         }
     }
 
-    @Test(expected = ValidationException.class)
+    @Test
     public void shouldFailWhenPastDate() throws ValidationException {
 
         Task task = new TaskBuilder()
@@ -72,7 +70,6 @@ public class TaskControllerTest {
             taskController.save(task);
         } catch (ValidationException e) {
             Assert.assertEquals("Due date must not be in past", e.getMessage());
-            throw e;
         }
     }
 }

@@ -14,9 +14,6 @@ public class Task {
     @Column(nullable = false)
     private LocalDate dueDate;
 
-    public Task() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {

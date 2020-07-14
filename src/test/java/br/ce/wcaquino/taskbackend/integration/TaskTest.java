@@ -1,7 +1,9 @@
-package br.ce.wcaquino.taskbackend.api;
+package br.ce.wcaquino.taskbackend.integration;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +19,7 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class TaskControllerTest {
+public class TaskTest {
 
     @LocalServerPort
     private int port;

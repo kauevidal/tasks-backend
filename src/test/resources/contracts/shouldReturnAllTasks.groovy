@@ -12,9 +12,12 @@ Contract.make {
         }
     }
     response {
+        headers {
+            contentType(applicationJson())
+        }
         status OK()
         body([
-                id         : $(regex(anInteger())),
+                id         : $(anyPositiveInt()),
                 description: $(anyNonEmptyString()),
                 dueDate    : $(anyDate())
         ])

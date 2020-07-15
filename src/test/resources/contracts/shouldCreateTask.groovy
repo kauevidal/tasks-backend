@@ -11,16 +11,19 @@ Contract.make {
             contentType(applicationJson())
         }
         body(
-                description: "task 2",
+                description: "task 1",
                 dueDate: "2025-01-01"
         )
     }
     response {
+        headers {
+            contentType(applicationJson())
+        }
         status CREATED()
         body([
                 id         : $(regex(anInteger())),
-                description: $(anyNonEmptyString()),
-                dueDate    : $(anyDate())
+                description: "task 1",
+                dueDate    : "2025-01-01"
         ])
     }
 }
